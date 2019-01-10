@@ -1,0 +1,14 @@
+# Weather Predication
+  - platform: yr
+
+#   - platform: alpha_vantage
+#     api_key: !secret alpha_vantage_api_key
+    # symbols:
+    #   - symbol: APHA
+    #     name: Aphria
+    #   - symbol: WEED
+    #     name: Canopy Growth Corp
+    # foreign_exchange:
+    #   - from: BTC
+    #     to: USD
+    #     name: Bitcoin

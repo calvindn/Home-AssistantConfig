@@ -1,0 +1,146 @@
+title: Nichols' Home
+
+resources:
+  - url: /local/mini-graph-card-bundle.js?v=0.1.0
+    type: module
+
+views:
+  - path: default_view
+    title: Home
+    icon: 'mdi:home'
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entity: sensor.bedroom_temperature
+            name: Bedroom
+            line_width: 12
+            font_size: 80
+            line_color: '#3ce77b'
+            line_value_above: 22
+            line_color_above: '#e74c3c'
+            line_value_below: 20
+            line_color_below: '#3498db'
+            hide:
+              - icon
+          - type: custom:mini-graph-card
+            entity: sensor.living_room_temperature
+            name: Living Room
+            line_width: 12
+            font_size: 80
+            line_color: '#3ce77b'
+            line_value_above: 22
+            line_color_above: '#e74c3c'
+            line_value_below: 20
+            line_color_below: '#3498db'
+            hide:
+              - icon
+          - type: custom:mini-graph-card
+            entity: sensor.office_temperature
+            name: Office
+            line_width: 12
+            font_size: 80
+            line_color: '#3ce77b'
+            line_value_above: 22
+            line_color_above: '#e74c3c'
+            line_value_below: 20
+            line_color_below: '#3498db'
+            hide:
+              - icon
+          - type: custom:mini-graph-card
+            entity: sensor.kitchen_temperature
+            name: Kitchen
+            line_width: 12
+            font_size: 80
+            line_color: '#3ce77b'
+            line_value_above: 22
+            line_color_above: '#e74c3c'
+            line_value_below: 20
+            line_color_below: '#3498db'
+            hide:
+              - icon
+      - type: glance
+        title: Who's Home
+        show_header_toggle: false
+        entities:
+        - entity: device_tracker.calvins_phone
+          name: Calvin
+        - entity: device_tracker.minahils_phone
+          name: Minahil
+        - entity: device_tracker.galaxys8
+          name: Devon
+      - type: glance
+        title: Occupancy
+        show_state: false
+        entities:
+        - entity: binary_sensor.living_room_occupancy
+          name: Living Room
+        - entity: binary_sensor.kitchen_occupancy
+          name: Kitchen
+        - entity: binary_sensor.bedroom_occupancy
+          name: Master Bedroom
+        - entity: binary_sensor.office_occupancy
+          name: Office
+      - type: weather-forecast
+        entity: weather.dark_sky
+  - path: temperature
+    title: Temperature
+    icon: 'mdi:thermometer'
+  - path: media
+    title: Media
+    icon: 'mdi:speaker'
+  - path: og_default_view
+    title: Default View
+    badges:
+      - binary_sensor.living_room_occupancy
+      - binary_sensor.kitchen_occupancy
+      - binary_sensor.bedroom_occupancy
+      - binary_sensor.office_occupancy
+      - device_tracker.minahils_phone
+      - device_tracker.calvins_phone
+      - device_tracker.505bc23d28cb
+      - device_tracker.android23903aadf3b73bd9
+      - device_tracker.devon_roku
+      - device_tracker.cherylsiphone
+      - device_tracker.galaxys8
+      - device_tracker.devonsipad
+      - device_tracker.elmiralt048
+      - device_tracker.laptopk4ertf71
+      - device_tracker.calvins_macbook
+      - device_tracker.minahils_macbook
+      - sensor.yr_symbol
+      - sensor.my_ecobee_temperature
+      - sensor.bedroom_temperature
+      - sensor.living_room_temperature
+      - sensor.office_temperature
+      - sensor.kitchen_temperature
+      - sensor.my_ecobee_humidity
+      - sun.sun
+    cards:
+      - type: thermostat
+        entity: climate.my_ecobee
+      - title: Light
+        type: entities
+        entities:
+          - light.kitchen
+          - light.kitchen_sink
+      - type: media-control
+        entity: media_player.googlehome6737
+      - type: media-control
+        entity: media_player.home_group_2
+      - type: media-control
+        entity: media_player.kitchen_speaker_2
+      - type: media-control
+        entity: media_player.office_speaker
+      - type: media-control
+        entity: media_player.living_room_tv
+      - type: weather-forecast
+        entity: weather.my_ecobee
+      - title: Z-Wave
+        type: entities
+        entities:
+          - zwave.aeotec_zw090_zstick_gen5_us
+      - type: markdown
+        title: Lovelace
+        content: >
+          Welcome to your **Lovelace UI**.

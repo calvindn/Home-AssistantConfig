@@ -1,0 +1,14 @@
+  - platform: unifi
+    host: 192.168.1.11
+    username: !secret unifi_user
+    password: !secret unifi_pass
+    ssid_filter:
+      - 'Tell My Wi-Fi Love Her'
+      - 'Pretty Fly for a Wi-Fi'
+    verify_ssl: false
+    new_device_defaults:
+      track_new_devices: false
+
+#   - platform: google_maps
+#     username: !secret google_user
+#     password: !secret google_pass

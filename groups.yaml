@@ -1,0 +1,6 @@
+family:
+  name: Family
+  view: yes
+  entities:
+    - device_tracker.calvins_phone
+    - device_tracker.minahils_phone
