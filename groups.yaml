@@ -1,6 +1,13 @@
 family:
   name: Family
-  view: yes
+  view: false
   entities:
     - device_tracker.calvins_phone
     - device_tracker.minahils_phone
+
+calvin:
+  name: Calvin
+  view: false
+  entities:
+    - device_tracker.calvins_phone
+    - device_tracker.google_maps_113354980897491525856

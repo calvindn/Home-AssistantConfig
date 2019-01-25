@@ -18,6 +18,10 @@ zone:
     latitude: !secret home_latitude
     longitude: !secret home_longitude
     radius: 200
+  - name: work
+    latitude: !secret work_latitude
+    longitude: !secret work_longitude
+    radius: 200
 
 # Enables the frontend
 frontend:
@@ -90,3 +94,22 @@ weather:
 
 device_tracker: !include device_tracker.yaml
 sensor: !include sensors.yaml
+
+tuya:
+  username: !secret smartlife_username
+  password: !secret smartlife_password
+  country_code: 1
+  platform: smart_life
+
+openuv:
+  api_key: !secret openuv_api_key
+  binary_sensors:
+    monitored_conditions:
+      - uv_protection_window
+  sensors:
+    monitored_conditions:
+      - current_ozone_level
+      - current_uv_index
+      - current_uv_level
+      - max_uv_index
+      - safe_exposure_time_type_3

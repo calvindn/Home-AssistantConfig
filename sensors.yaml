@@ -3,12 +3,27 @@
 
 #   - platform: alpha_vantage
 #     api_key: !secret alpha_vantage_api_key
-    # symbols:
-    #   - symbol: APHA
-    #     name: Aphria
-    #   - symbol: WEED
-    #     name: Canopy Growth Corp
-    # foreign_exchange:
-    #   - from: BTC
-    #     to: USD
-    #     name: Bitcoin
+#     symbols:
+#       - name: Google
+#         currency: USD
+#         symbol: GOOG
+#       - name: Canopy Growth Corp
+#         currency: CAD
+#         symbol: 'TSX:WEED'
+    #   - name: Aphria
+    #     currency: CAD
+    #     symbol: TSX:APHA
+
+  - platform: google_travel_time
+    name: Phone To Home
+    api_key: !secret google_api_key
+    origin: device_tracker.google_maps_113354980897491525856
+    destination: zone.home
+    scan_interval: 900
+
+  - platform: google_travel_time
+    name: Home to Work
+    api_key: !secret google_api_key
+    origin: zone.work
+    destination: zone.home
+    scan_interval: 900

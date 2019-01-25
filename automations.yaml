@@ -7,7 +7,7 @@
     action:
       service: frontend.set_theme
       data:
-        name: slate
+        name: midnight
 #   - alias: 'Set dark theme for the night'
 #     initial_state: True
 #     trigger:
@@ -17,3 +17,54 @@
 #       - service: frontend.set_theme
 #         data:
 #           name: slate
+
+  - alias: Turn on kitchen sink light when there is movement
+    trigger:
+      platform: state
+      entity_id: binary_sensor.kitchen_occupancy
+      to: 'on'
+    condition:
+      condition: or  # 'when dark' condition: either after sunset or before sunrise - equivalent to a state condition on `sun.sun` of `below_horizon`
+      conditions:
+        - condition: sun
+          after: sunset
+        - condition: sun
+          before: sunrise
+    action:
+      service: homeassistant.turn_on
+      entity_id: light.kitchen_sink
+
+  - alias: Turn off kitchen sink light when there is no movement
+    trigger:
+      platform: state
+      entity_id: binary_sensor.kitchen_occupancy
+      to: 'off'
+    action:
+      service: homeassistant.turn_off
+      entity_id: light.kitchen_sink
+
+  - alias: Update OpenUV every 60 minutes during the daytime
+    trigger:
+      platform: time_pattern
+      minutes: "/60"
+      seconds: 00
+    condition:
+      condition: and
+      conditions:
+        - condition: sun
+          after: sunrise
+        - condition: sun
+          before: sunset
+    action:
+      service: openuv.update_data
+
+  - alias: Cheryl's Here!
+    trigger:
+      platform: state
+      entity_id: device_tracker.cherylsiphone
+      to: 'home'
+    action:
+      service: tts.google_say
+      entity_id: media_player.kitchen_speaker
+      data:
+        message: 'Get ready to rock Cheryls Here!'

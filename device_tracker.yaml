@@ -5,10 +5,11 @@
     ssid_filter:
       - 'Tell My Wi-Fi Love Her'
       - 'Pretty Fly for a Wi-Fi'
+      - 'IoT'
     verify_ssl: false
     new_device_defaults:
       track_new_devices: false
 
-#   - platform: google_maps
-#     username: !secret google_user
-#     password: !secret google_pass
+  - platform: google_maps
+    username: !secret google_user
+    password: !secret google_pass
