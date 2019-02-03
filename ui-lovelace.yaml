@@ -23,7 +23,7 @@ temp-sensor-defaults: &temp-sensor-defaults
 views:
   - path: default_view
     title: Home
-    icon: 'mdi:home'
+    icon: mdi:home
     cards:
       - type: entity-filter
         entities:
@@ -131,19 +131,34 @@ views:
                 entity: switch.3580804784f3eb228212
                 show_state: true
                 name: Office Switch
-
+  - path: lights
+    title: Lighting
+    icon: mdi:lightbulb-outline
+    cards:
+      - title: Light
+        type: entities
+        entities:
+          - light.kitchen
+          - light.kitchen_sink
+          - light.hallway
+          - light.hall_1
+          - light.hall_2
+          - light.hall_3
+          - light.hall_4
   - path: media
     title: Media
-    icon: 'mdi:speaker'
+    icon: mdi:speaker
     cards:
       - type: media-control
-        entity: media_player.googlehome6737
+        entity: media_player.bedroom_home
       - type: media-control
-        entity: media_player.home_group_2
+        entity: media_player.home_group
       - type: media-control
-        entity: media_player.kitchen_speaker_2
+        entity: media_player.kitchen_home
       - type: media-control
-        entity: media_player.office_speaker
+        entity: media_player.office_home
+      - type: media-control
+        entity: media_player.living_room_home
       - type: media-control
         entity: media_player.living_room_tv
   - path: temperature
@@ -156,13 +171,8 @@ views:
         entity: weather.my_ecobee
   - path: settings
     title: Settings
-    icon: 'mdi:settings'
+    icon: mdi:alpha-z-box
     cards:
-      - title: Light
-        type: entities
-        entities:
-          - light.kitchen
-          - light.kitchen_sink
       - title: Z-Wave
         type: entities
         entities:

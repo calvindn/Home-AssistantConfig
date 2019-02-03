@@ -8,7 +8,7 @@
       - 'IoT'
     verify_ssl: false
     new_device_defaults:
-      track_new_devices: false
+      track_new_devices: true
 
   - platform: google_maps
     username: !secret google_user
